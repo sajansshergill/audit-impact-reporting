@@ -268,7 +268,10 @@ def main():
 
     if not DATA_PATH.exists():
         st.error(
-            "**Missing data.** Run the ETL first: `python etl_pipeline.py`"
+            "Data file `data_clean/master_dataset.csv` is missing.\n\n"
+            "- For the **public demo** (e.g. Streamlit Cloud), make sure a sample\n"
+            "  `master_dataset.csv` is committed in `data_clean/`.\n"
+            "- Locally, you can regenerate it by running `python etl_pipeline.py`."
         )
         st.stop()
 

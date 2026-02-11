@@ -30,8 +30,11 @@ Thumbs.db
 .ipynb_checkpoints/
 *.ipynb
 
-# Generated data (run ETL to recreate)
-data_clean/*.csv
+# Generated data (run ETL to recreate), but keep a small sample master_dataset.csv
+# for the deployed demo.
+data_clean/*
+!data_clean/.gitkeep
+!data_clean/master_dataset.csv
 data_raw/*.xlsx
 data_raw/*.csv
 data_raw/*.xls
