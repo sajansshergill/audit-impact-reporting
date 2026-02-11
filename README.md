@@ -1,235 +1,187 @@
-# Nonprofit Data Systems Audit Impact Reporting Platform
+# Nonprofit Impact Reporting Platform
 
-## Overview
+**Repository:** `audit-impact-reporting`
 
-The project simulates a real-world nonprofit data systems audit and redesign.
-The goal is to transform fragmented program data into a standardized, documented, and reportable system that supports organizationsl learning and decision-making.
+End-to-end **data systems** project: audit messy program data, run a single **ETL pipeline**, and explore results in a **modern Streamlit dashboard**. Built to demonstrate data engineering, documentation, and impact reporting—suitable for portfolio and technical interviews.
 
-Many nonprofit collect data across spreadsheets, surveys, and CRM exports, but lack standardized workflows, documentation, and reporting infrastructure. This project demonstrates how to:
-
-- Audit messy data processes
-- Identify gaps and redundancies
-- Standardize data inputs
-- Document workflows
-- Build an impact reporting dashboard
-- Create a share organizational data glossary
-
-The project mirrors the responsibilities of a data systems analyst working in nonprofit operations.
+**Strong fit for roles in:** data systems & process improvement, nonprofit impact/operations, CRM & documentation support, and data analysis & visualization (e.g. mapping data collection processes, standardizing inputs for scorecards, staff-facing documentation, glossaries, and dashboards for internal decision-making). Raw data simulates **Excel, survey, and CRM-style exports** (e.g. Salesforce-style participant/program data).
 
 ---
 
-## Problem Statement
+## What This Project Does
 
-A mid-sized nonprofit runs youth education programs across multiple cities. Each program team tracks attendance, outcomes, and participat surveys differently using Excel files, survey tools, and CRM exports. Leadership struggles to generate reliable impact reports due to:
+- **Audits messy data** — Simulates real-world issues (inconsistent column names, duplicates, mixed date formats, missing values) across attendance, CRM, surveys, and outcomes.
+- **Standardizes with ETL** — One Python pipeline that cleans, normalizes, and merges multiple sources into a single master dataset.
+- **Documents the system** — Data dictionary, workflow guide, and glossary in `documentation/`.
+- **Delivers a dashboard** — Streamlit app: filters (city, program, date range), KPIs, charts, and detail tables.
 
-- inconsistent field naming
-- duplicate records
-- missing data
-- redundant data entry
-- unclear reporting standards
-- lack of documentation
-
-This project redesigns the data system from the ground up.
+No ML—focused on **data systems, cleaning, and reporting**.
 
 ---
 
-## Objectives
+## Screenshot
 
-- Map existing data collection processes
-- Audit raw datasets for inconsistencies
-- Standdardize schema and field definitions
-- Build a clean master dataset
-- Document workflows and data strategy
-- Create an impact dashboard
-- Develop a shared data glossary
+Add a screenshot as `assets/dashboard-screenshot.png`, then uncomment the next line in this README to display it.
+
+<!-- ![Dashboard](assets/dashboard-screenshot.png) -->
 
 ---
 
 ## Tech Stack
 
-- Python (pandas, numpy)
-- SQL (SQLite / Postgres schema design)
-- Excel / CSV data workflows
-- Tableau / Power BI / Streamlit dashboard
-- Markdown documentation
-- Data modeling & process mapping
-
-No machine learning is used - this is a data systems and operations analytics project.
+| Layer     | Tools |
+|----------|--------|
+| Language | Python 3.10+ |
+| ETL/Data | pandas, numpy |
+| Dashboard | Streamlit, Altair (interactive charts) |
+| Data I/O | CSV, Excel (openpyxl) |
+| Docs     | Markdown |
 
 ---
 
 ## Project Structure
 
 ```
-nonprofit-data-system/
-│
-├── data_raw/              # messy program data (simulated)
-├── data_clean/            # standardized datasets
-├── etl_pipeline.py        # cleaning & transformation scripts
-│
-├── sql_schema/            # CRM-style relational schema
-├── dashboard/             # impact dashboard files
-│
+audit-impact-reporting/
+├── data_raw/                 # Raw inputs (attendance, CRM, surveys, outcomes)
+├── data_clean/               # ETL outputs (cleaned tables + master_dataset.csv)
+├── dashboard/
+│   └── app.py                # Streamlit impact dashboard
 ├── documentation/
-│   ├── data_dictionary.md
-│   ├── workflow_guide.md
-│   ├── glossary.md
-│
-├── impact_report.pdf      # executive summary
+│   ├── data_dictionary.md    # Master dataset field definitions
+│   ├── workflow_guide.md     # How to run ETL and dashboard
+│   └── glossary.md          # Shared terminology
+├── assets/                   # Optional: dashboard screenshot for README
+├── etl_pipeline.py           # End-to-end ETL (clean, merge, quality report)
+├── requirements.txt
 └── README.md
 ```
 
 ---
 
-## Phase 1: Data Systems Audit
+## Quick Start
 
-Simulated raw program datasets intentionally include:
+**1. Clone and enter the repo**
 
-- inconsistent column naming
-- duplicate participant IDs
-- mized date formats
-- missing survey responses
-- redundant tracking fields
-
-The audit identifies structural issues and proposes improvements.
-
-Deliverables:
-- Gap analysis report
-- Process map
-- Redundancy assessment
-- Recommendations memo
-
----
-
-## Phase 2: Data Standardization
-
-A unified schema is designed to replace fragmented tracking.
-
-The ETL pipeline:
-
-- cleans participant records
-- standardizes program IDs
-- normalizes dates and categorical fields
-- merges datasets into a master table
-- validates missing values
-
-Deliverables:
-- Clean master dataset
-- Autmomated cleaning pipeline
-- Data dictionary
-
----
-
-## Phase 3: CRM Workflow Simulation
-
-A Salesforce-style relational structure is created using SQL:
-
-Tables include:
-
-- Partcipants
-- Programs
-- Attendance
-- Outcomes
-- Surveys
-
-This phase documents:
-
-- table relationships
-- field definitions
-- workflow diagrams
-- staff-facing usage instructions
-
-Deliverables:
-- relational schema
-- workflow documentation
-- system usage guide
-
----
-
-## Phase 4: Impact Dashboard
-
-A dashboard summarizes program performance:
-
-Metrics include:
-
-- completion rates
-- attendance trends
-- outcome improvements
-- demographic breakdowns
-- city-level comparisons
-
-The dashboad supoorts internal learning and decision-making.
-
-Deliverables:
-- visual charts
-- summary tables
-- executuve impact report
-
----
-
-## Phase 5: Organizational Data Glossary
-
-A shared glossary defines:
-
-- program KPIs
-- impact metrics
-- participant terminology
-- reporting standards
-- data entry rules
-
-This creates a common language across teams.
-
-Deliverable:
-- Nonprofit Data Playbook
-
----
-
-## Key Skills Demonstrated
-
-- Data system auditing
-- Process documentation
-- Data cleaning & validation
-- Schema design
-- Workflow standardization
-- Dashboard reporting
-- Cross-team communication
-- Organizational anlaytical thinking
-
----
-
-## How to Run the Pipeline
-
-1. Clone repository
-
-```
-git clone https://github.com/yourusername/nonprofit-data-system
-cd nonprofit-data-system
+```bash
+git clone https://github.com/<your-username>/audit-impact-reporting.git
+cd audit-impact-reporting
 ```
 
-2. Install dependencies
+**2. Create a virtual environment (recommended)**
 
-```
-pip install pandas numpy
+```bash
+python -m venv venv
+source venv/bin/activate   # Windows: venv\Scripts\activate
 ```
 
-3. Run ETL pipeline
+**3. Install dependencies**
 
+```bash
+pip install -r requirements.txt
 ```
+
+**4. Run the ETL pipeline**
+
+Reads from `data_raw/`, writes to `data_clean/`. If raw files are missing, the pipeline generates sample data so you can run immediately.
+
+```bash
 python etl_pipeline.py
 ```
 
-4. Explore clean datasets and dashboard outputs
+**5. Launch the dashboard**
+
+```bash
+streamlit run dashboard/app.py
+```
+
+Open the URL in the terminal (e.g. `http://localhost:8501`).
 
 ---
 
-## Real-World Relevance
+## Dashboard
 
-This project reflects work commly done by:
+The app uses a **teal-and-neutral** design system, **Plus Jakarta Sans** typography, and a tabbed layout:
 
-- nonprofit data analysts
-- operations analysts
-- impact measurement teams
-- CRM administrators
-- program evaluation specialists
+- **Overview** — Summary of filtered results and how to use the app.
+- **Charts** — Interactive Altair bar charts (attendance by program, impact by city) with sort order and configurable bar limit; hover tooltips and zoom/pan.
+- **Data** — Searchable table and **Download as CSV** for the current view.
+- **Quality** — Missing-value and duplicate counts for the filtered dataset.
 
-It emphasizes structure, documentation, and organizational clarity - not just code.
+**Sidebar:** City and program multiselect, date range, min attendance %, min satisfaction, and max bars in charts. All views update as you change filters. A footer at the bottom credits the stack and data source.
+
+---
+
+## Data Sources (Simulated)
+
+| Source            | Path | Purpose |
+|-------------------|------|---------|
+| Attendance        | `data_raw/attendance.xlsx` | Session-level attendance |
+| CRM export        | `data_raw/crm_export.csv`  | Participants, programs, contact info |
+| Survey responses  | `data_raw/survey_responses.csv` | Satisfaction, NPS |
+| Program outcomes  | `data_raw/program_outcomes.xlsx` | Pre/post scores, outcome deltas |
+
+The ETL produces **master_dataset.csv** in `data_clean/`, which the dashboard reads.
+
+---
+
+## Skills Demonstrated
+
+- **Data systems auditing** — Identifying inconsistencies and designing a unified schema.
+- **ETL design** — Cleaning, normalizing, and merging multi-source data.
+- **Process documentation** — Data dictionary, workflow guide, glossary.
+- **Dashboard development** — Streamlit UI with filters, metrics, and charts.
+- **Reproducibility** — Pinned dependencies, clear run instructions, optional bootstrap data.
+
+---
+
+## For Recruiters
+
+- **Role fit:** Data analyst, operations analyst, impact measurement, CRM/data systems, data & process documentation.
+- **Deliverables:** Working ETL, documented schema, interactive dashboard, and supporting docs.
+- **Run from scratch:** Clone → `pip install -r requirements.txt` → `python etl_pipeline.py` → `streamlit run dashboard/app.py`.
+
+---
+
+## How This Project Maps to Common JD Requirements
+
+| JD area | How this project demonstrates it |
+|--------|-----------------------------------|
+| **Map & document data collection processes** | Workflow guide and data dictionary document how data flows from raw sources (Excel, CSV, surveys) into a single master dataset. |
+| **Review sources for gaps, redundancies, inconsistencies** | ETL pipeline audits and cleans multiple sources; data quality report and dashboard Quality tab surface missing values and duplicates. |
+| **Standardize data inputs for scorecards** | Master dataset is a single, standardized source; dashboard provides scorecard-style KPIs (participants, attendance, satisfaction, outcome delta). |
+| **Document workflows, field definitions, staff-facing process docs** | `documentation/`: data dictionary (field definitions), workflow guide (how to run ETL and dashboard), glossary (shared terms). |
+| **Data cleaning, validation, preparation for reporting** | ETL does cleaning, normalization, and validation; outputs feed the dashboard. |
+| **Charts, tables, visual summaries for internal learning** | Dashboard: interactive Altair charts, tables, filters, and CSV export for decision-making. |
+| **Collaborative glossary of data/program/impact terms** | `documentation/glossary.md` defines participant, program, attendance rate, outcome delta, NPS, ETL, etc. |
+| **Spreadsheets & structured data** | pandas, Excel (openpyxl), CSV throughout; schema and column mapping in ETL. |
+| **Dashboards / data visualization** | Streamlit dashboard with filters, metrics, and Altair charts. |
+| **CRM-style data** | Raw data includes a CRM export (participants, programs, contact info); approach transfers to Salesforce or similar exports. |
+
+---
+
+## Interview Talking Points
+
+Use these when walking through the project in an interview:
+
+- **Problem:** Nonprofits often have fragmented data (Excel, CRM, surveys) with inconsistent schemas, so leadership can’t get reliable impact reports.
+- **Approach:** Audited raw sources, designed a unified schema, and built one ETL pipeline that cleans and merges into a single master dataset.
+- **Dashboard:** Streamlit app with a clear design system (teal accent, Plus Jakarta Sans), tabbed layout (Overview, Charts, Data, Quality), interactive Altair charts, search, and CSV export—all driven by the same filters.
+- **Documentation:** Data dictionary, workflow guide, and glossary so the system is understandable and maintainable.
+- **Reproducibility:** Pinned dependencies, clear Quick Start, and optional bootstrap data so the project runs from a fresh clone.
+
+---
+
+## Documentation
+
+| Document | Description |
+|----------|-------------|
+| [Data dictionary](documentation/data_dictionary.md) | Field definitions for the master dataset |
+| [Workflow guide](documentation/workflow_guide.md)   | How to run and maintain the pipeline |
+| [Glossary](documentation/glossary.md)              | Shared terminology |
+
+---
+
+## License
+
+This project is for portfolio and learning use. Replace `<your-username>` in the clone URL with your GitHub username when forking or sharing.
