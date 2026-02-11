@@ -183,9 +183,3 @@ Use these when walking through the project in an interview:
 | [Workflow guide](documentation/workflow_guide.md)   | How to run and maintain the pipeline |
 | [Glossary](documentation/glossary.md)              | Shared terminology |
 | [SQL schema](sql_schema/README.md)                 | Relational (CRM-style) schema and DDL |
-
----
-
-## License
-
-This project is for portfolio and learning use. Replace `<your-username>` in the clone URL with your GitHub username when forking or sharing.
