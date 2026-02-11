@@ -45,3 +45,4 @@ streamlit run dashboard/app.py
 
 - **ETL:** Edit `etl_pipeline.py` to change cleaning rules, column mappings, or add sources.
 - **Dashboard:** Edit `dashboard/app.py` to add metrics, charts, or filters.
+- **Schema:** See [sql_schema/](../sql_schema/README.md) for the relational (CRM-style) table definitions and optional SQL implementation.

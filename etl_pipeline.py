@@ -118,7 +118,7 @@ def parse_mixed_date(x) -> pd.Timestamp:
     if pd.isna(x):
         return pd.NaT
     try:
-        return pd.to_datetime(x, errors="coerce", infer_datetime_format=True)
+        return pd.to_datetime(x, errors="coerce")
     except Exception:
         return pd.NaT
 

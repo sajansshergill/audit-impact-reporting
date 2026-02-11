@@ -1,0 +1,3 @@
+# Use polling instead of fsevents on macOS to avoid "Cannot start fsevents stream" errors
+[server]
+fileWatcherType = "poll"

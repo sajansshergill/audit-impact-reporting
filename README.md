@@ -50,7 +50,10 @@ audit-impact-reporting/
 ├── documentation/
 │   ├── data_dictionary.md    # Master dataset field definitions
 │   ├── workflow_guide.md     # How to run ETL and dashboard
-│   └── glossary.md          # Shared terminology
+│   └── glossary.md           # Shared terminology
+├── sql_schema/               # Relational schema (CRM-style tables + SQL DDL)
+│   ├── README.md             # Schema overview and ETL alignment
+│   └── schema.sql            # CREATE TABLE / VIEW (SQLite-compatible)
 ├── assets/                   # Optional: dashboard screenshot for README
 ├── etl_pipeline.py           # End-to-end ETL (clean, merge, quality report)
 ├── requirements.txt
@@ -150,7 +153,7 @@ The ETL produces **master_dataset.csv** in `data_clean/`, which the dashboard re
 | **Map & document data collection processes** | Workflow guide and data dictionary document how data flows from raw sources (Excel, CSV, surveys) into a single master dataset. |
 | **Review sources for gaps, redundancies, inconsistencies** | ETL pipeline audits and cleans multiple sources; data quality report and dashboard Quality tab surface missing values and duplicates. |
 | **Standardize data inputs for scorecards** | Master dataset is a single, standardized source; dashboard provides scorecard-style KPIs (participants, attendance, satisfaction, outcome delta). |
-| **Document workflows, field definitions, staff-facing process docs** | `documentation/`: data dictionary (field definitions), workflow guide (how to run ETL and dashboard), glossary (shared terms). |
+| **Document workflows, field definitions, staff-facing process docs** | `documentation/`: data dictionary (field definitions), workflow guide (how to run ETL and dashboard), glossary (shared terms). `sql_schema/`: relational (CRM-style) tables and SQL DDL. |
 | **Data cleaning, validation, preparation for reporting** | ETL does cleaning, normalization, and validation; outputs feed the dashboard. |
 | **Charts, tables, visual summaries for internal learning** | Dashboard: interactive Altair charts, tables, filters, and CSV export for decision-making. |
 | **Collaborative glossary of data/program/impact terms** | `documentation/glossary.md` defines participant, program, attendance rate, outcome delta, NPS, ETL, etc. |
@@ -179,6 +182,7 @@ Use these when walking through the project in an interview:
 | [Data dictionary](documentation/data_dictionary.md) | Field definitions for the master dataset |
 | [Workflow guide](documentation/workflow_guide.md)   | How to run and maintain the pipeline |
 | [Glossary](documentation/glossary.md)              | Shared terminology |
+| [SQL schema](sql_schema/README.md)                 | Relational (CRM-style) schema and DDL |
 
 ---
 
